@@ -1,17 +1,15 @@
 #!/usr/bin/env python
-'''
-Created on Jan 20, 2014
-
-@author: magic282
-'''
+import os
 import sys
-from Shooter import Shooter
+
+from folder import scan_folder
 
 if __name__ == '__main__':
     print("Welcome to ShooterSubPyDownloader")
 
-    fileNames = sys.argv[1:]
+    movie_dirs = [os.curdir]
+    if len(sys.argv) >= 2:
+        movie_dirs = sys.argv[1:]
 
-    for f in fileNames:
-        shooter = Shooter(f)
-        shooter.start()
+    for movie_dir in movie_dirs:
+        scan_folder(movie_dir)
