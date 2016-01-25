@@ -12,4 +12,9 @@ if __name__ == '__main__':
         movie_dirs = sys.argv[1:]
 
     for movie_dir in movie_dirs:
-        scan_folder(movie_dir)
+        detail = scan_folder(movie_dir)
+        print '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+        for entry in detail:
+            print '{} : {}'.format(entry[1], entry[0])
+        print '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+

@@ -31,6 +31,7 @@ class Shooter(object):
     def start(self):
         self.__videoHash = SVPlayerHash.ComputeFileHash(self.__fileName)
 
+        download_count = 0
         try:
             values = dict(filehash=self.__videoHash, pathinfo=self.__fileName, format="json", lang="Chn")
             data = urlencode(values).encode('utf-8', 'replace')
@@ -58,9 +59,13 @@ class Shooter(object):
                     backF = response.read()
                     with open(outFileName, 'wb') as output:
                         output.write(backF)
+
+                    download_count += 1
         except:
             print '---- failed {} '.format(self.__fileName)
             print traceback.print_stack()
+
+        return download_count
 
     def __init__(self, params):
         '''
