@@ -14,8 +14,8 @@ def scan_folder(folder, detail=None):
         movie_file_full_path = os.path.join(folder, movie_file)
 
         # if subtitle already exist, ignore it
-        srt_full_path = os.path.join(folder, movie_file, '.chn.srt')
-        ass_full_path = os.path.join(folder, movie_file, '.chn.ass')
+        srt_full_path = os.path.join(folder, movie_file + '.chn.srt')
+        ass_full_path = os.path.join(folder, movie_file + '.chn.ass')
         if os.path.exists(srt_full_path) or os.path.exists(ass_full_path):
             print '---- subtitle already get: {}'.format(movie_file)
             continue
