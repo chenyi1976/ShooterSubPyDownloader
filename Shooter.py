@@ -40,7 +40,8 @@ class Shooter(object):
 
             jsonContent = json.loads(content)
             for idx_i, i in enumerate(jsonContent):
-                print(i)
+                # print(i)
+                print '++++++++ Getting No. {} subtitle'.format(idx_i)
 
                 if i["Delay"] != 0:
                     delayFileName = '.'.join((self.__fileName, "chn%s" % ("" if idx_i == 0 else idx_i), "delay"))
@@ -52,7 +53,7 @@ class Shooter(object):
                         outFileNameList.insert(2, str(idx_j))
                     outFileName = '.'.join(outFileNameList)
                     dLink = j["Link"]
-                    print(dLink)
+                    # print(dLink)
                     response = urlopen(dLink)
                     backF = response.read()
                     with open(outFileName, 'wb') as output:
