@@ -1,0 +1,7 @@
+SETTING_RECURSIVE = "recursive"
+SETTING_IGNORE_HIDDEN = "ignore_hidden"
+
+DEFAULT_SETTING_RECURSIVE = True
+DEFAULT_SETTING_IGNORE_HIDDEN = True
+
+settings = {}
