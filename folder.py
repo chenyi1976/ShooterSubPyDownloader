@@ -9,7 +9,7 @@ def scan_folder(folder):
     # print '**** processing:', folder
     logging.info('**** processing folder:{}'.format(folder))
 
-    movie_files = [f for f in os.listdir(folder) if f.endswith('.mp4') or f.endswith('.mkv') or f.endswith('.avi')]
+    movie_files = [f for f in sorted(os.listdir(folder)) if f.endswith('.mp4') or f.endswith('.mkv') or f.endswith('.avi')]
 
     for movie_file in movie_files:
         movie_file_full_path = os.path.join(folder, movie_file)
@@ -31,7 +31,7 @@ def scan_folder(folder):
         # detail.append((movie_file_full_path, count))
 
     if settings[SETTING_RECURSIVE]:
-        sub_folders = [f for f in os.listdir(folder) if os.path.isdir(os.path.join(folder, f))]
+        sub_folders = [f for f in sorted(os.listdir(folder)) if os.path.isdir(os.path.join(folder, f))]
         for sub_folder in sub_folders:
             ignore_hidden = settings[SETTING_IGNORE_HIDDEN]
             if ignore_hidden:
